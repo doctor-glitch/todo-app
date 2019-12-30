@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
+import { HelloService } from '../services/hello.service';
 
 @Component({
   selector: 'app-todo',
@@ -20,7 +21,7 @@ export class TodoComponent implements OnInit {
   ];
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private ser: HelloService) {
     this.todoForm = fb.group({
       name: '',
       description: ''
@@ -28,7 +29,7 @@ export class TodoComponent implements OnInit {
   }
   add() {
     console.log(this.todoForm);
-    if (this.todoForm.value.name === '' || this.todoForm.value.description === '') {
+    if (!this.todoForm.value.name || !this.todoForm.value.description) {
       alert('invalid');
     } else {
       this.todos.push({
@@ -37,6 +38,7 @@ export class TodoComponent implements OnInit {
       });
       this.todoForm.reset();
     }
+    this.ser.hai();
   }
 
   delete(list) {
