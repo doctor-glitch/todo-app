@@ -1,0 +1,25 @@
+<html>
+  <head> </head>
+  <body>
+    <form [formGroup]="todoForm" (ngSubmit)="add()">
+      <input formControlName="name" name="todo" type="text" required /><br />
+      <input
+        formControlName="description"
+        name="description"
+        type="text"
+      /><br />
+      <button type="submit">Add</button>
+    </form>
+
+    <table>
+      <tr *ngIf="todos.length == 0">
+        No todos to display
+      </tr>
+      <tr *ngFor="let list of todos; let i = index">
+        <td>{{ list.name }}</td>
+        <td>{{ list.description }}</td>
+        <td><button (click)="delete(list)">Delete</button></td>
+      </tr>
+    </table>
+  </body>
+</html>
