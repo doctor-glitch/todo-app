@@ -1,16 +1,7 @@
 <html>
   <head> </head>
   <body>
-    <form [formGroup]="todoForm" (ngSubmit)="add()">
-      <input formControlName="name" name="todo" type="text" required /><br />
-      <input
-        formControlName="description"
-        name="description"
-        type="text"
-      /><br />
-      <button type="submit">Add</button>
-    </form>
-
+    <button (click)='add()'>Add todos</button>
     <table>
       <tr *ngIf="todos.length == 0">
         No todos to display

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
 import { HelloService } from '../services/hello.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -20,29 +21,17 @@ export class TodoComponent implements OnInit {
     }
   ];
 
-
-  constructor(private fb: FormBuilder, private ser: HelloService) {
+  constructor(private fb: FormBuilder, private ser: HelloService, private router: Router) {
     this.todoForm = fb.group({
       name: '',
       description: ''
     });
   }
-  add() {
-    console.log(this.todoForm);
-    if (!this.todoForm.value.name || !this.todoForm.value.description) {
-      alert('invalid');
-    } else {
-      this.todos.push({
-        name: this.todoForm.value.name,
-        description: this.todoForm.value.description
-      });
-      this.todoForm.reset();
-    }
-    this.ser.hai();
-  }
-
   delete(list) {
     this.todos = this.todos.filter((t) => t !== list);
+  }
+  add(){
+    this.router.navigate(['add']);
   }
   ngOnInit() {
   }
