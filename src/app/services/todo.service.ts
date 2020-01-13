@@ -8,13 +8,14 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
-  add() {
-    this.http.post('http://localhost:3000/create', {
-      'name': 'Test1',
-      'description': 'desc2'
-    }).subscribe(data => {
-      console.log('data', data);
-      alert('done');
-    })
+  add(name, description) {
+    return this.http.post('http://localhost:3000/create', {
+      name,
+      description
+    });
+  }
+
+  get() {
+    return this.http.get('http://localhost:3000');
   }
 }

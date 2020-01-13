@@ -1,9 +1,16 @@
 button{
   text-align: center;
   color:white;
-  padding: 5px 10px 5px 10px;
   background-color:black;
-  border-radius: 20px;;
   border: none;
   font-size: medium;
+}
+table{
+  width: 100%;
+  border: 2px solid blue;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+td{
+  padding: 10px;
 }

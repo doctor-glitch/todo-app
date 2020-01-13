@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder } from '@angular/forms';
 import { HelloService } from '../services/hello.service';
 import { Router } from '@angular/router';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-todo',
@@ -10,30 +11,19 @@ import { Router } from '@angular/router';
 })
 export class TodoComponent implements OnInit {
   todoForm;
-  todos = [
-    {
-      name: 'todo',
-      description: 'todo is one'
-    },
-    {
-      name: 'todo',
-      description: 'todo is two'
-    }
-  ];
+  todos: any = [];
 
-  constructor(private fb: FormBuilder, private ser: HelloService, private router: Router) {
-    this.todoForm = fb.group({
-      name: '',
-      description: ''
-    });
-  }
+  constructor(private fb: FormBuilder, private ser: HelloService, private router: Router, private todoService: TodoService) { }
   delete(list) {
     this.todos = this.todos.filter((t) => t !== list);
   }
-  add(){
+  add() {
     this.router.navigate(['add']);
   }
   ngOnInit() {
+    this.todoService.get().subscribe(data => {
+      this.todos = data;
+    });
   }
 
 }

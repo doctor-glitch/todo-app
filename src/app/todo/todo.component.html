@@ -1,12 +1,13 @@
 <html>
   <head> </head>
   <body>
-    <button (click)='add()'>Add todos</button>
-    <table>
+    <button (click)="add()">Add todos</button>
+    <table border="1">
       <tr *ngIf="todos.length == 0">
         No todos to display
       </tr>
       <tr *ngFor="let list of todos; let i = index">
+        <td>{{ list._id }}</td>
         <td>{{ list.name }}</td>
         <td>{{ list.description }}</td>
         <td><button (click)="delete(list)">Delete</button></td>

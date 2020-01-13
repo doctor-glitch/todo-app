@@ -24,9 +24,10 @@ export class AddTodoComponent implements OnInit {
     if (!this.todoForm.value.name || !this.todoForm.value.description) {
       alert('invalid');
     } else {
-      this.todoService.add();
-      this.todoForm.reset();
-      this.router.navigate(['todo']);
+      this.todoService.add(this.todoForm.value.name, this.todoForm.value.description).subscribe(data => {
+        this.todoForm.reset();
+        this.router.navigate(['todo']);
+      })
     }
   }
 
