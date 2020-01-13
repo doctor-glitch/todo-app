@@ -9,15 +9,22 @@ export class TodoService {
   constructor(private http: HttpClient) { }
 
   add(name, description) {
-    return this.http.post(baseUrl + 'create', {
+    return this.http.post(`${baseUrl}create`, {
+      name,
+      description
+    });
+  }
+
+  edit(name, description, id) {
+    return this.http.put(`${baseUrl}edit/${id}`, {
       name,
       description
     });
   }
 
   delete(id) {
-    console.log(id);
-    return this.http.delete(baseUrl + 'delete/' + id)
+    // return this.http.delete(baseUrl + 'delete/' + id);
+    return this.http.delete(`${baseUrl}delete/${id}`);
   }
 
   get() {

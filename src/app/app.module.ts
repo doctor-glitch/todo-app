@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     LoginComponent,
-    AddTodoComponent
+    AddTodoComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

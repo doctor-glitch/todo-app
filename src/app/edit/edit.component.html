@@ -15,8 +15,8 @@
   crossorigin="anonymous"
 ></script>
 <div class="container">
-  <h1>Add Todo</h1>
-  <form [formGroup]="todoForm" (ngSubmit)="add()">
+  <h1>Edit Todo</h1>
+  <form [formGroup]="todoForm" (ngSubmit)="edit()">
     <div class="form-group">
       <label for="exampleInputPassword1">Name</label>
       <input formControlName="name" name="todo" type="text" class="form-control" />
@@ -25,7 +25,7 @@
       <label for="exampleInputPassword1">Description</label>
       <input formControlName="description" name="description" type="text" class="form-control" />
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-success">Save</button>
   </form>
 </div>
 

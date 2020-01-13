@@ -24,6 +24,9 @@ export class TodoComponent implements OnInit {
   add() {
     this.router.navigate(['add']);
   }
+  edit(id) {
+    this.router.navigate(['edit', id]);
+  }
   ngOnInit() {
     this.getTodos();
   }
