@@ -14,16 +14,22 @@ export class TodoComponent implements OnInit {
   todos: any = [];
 
   constructor(private fb: FormBuilder, private ser: HelloService, private router: Router, private todoService: TodoService) { }
-  delete(list) {
-    this.todos = this.todos.filter((t) => t !== list);
+  delete(id) {
+    console.log(id);
+    this.todoService.delete(id).subscribe(data => {
+      console.log('completed');
+      this.getTodos();
+    });
   }
   add() {
     this.router.navigate(['add']);
   }
   ngOnInit() {
+    this.getTodos();
+  }
+  getTodos() {
     this.todoService.get().subscribe(data => {
       this.todos = data;
     });
   }
-
 }
