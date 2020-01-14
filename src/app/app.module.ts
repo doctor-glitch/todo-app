@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AddTodoComponent } from './add-todo/add-todo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
+import { SearchTodoComponent } from './search-todo/search-todo.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EditComponent } from './edit/edit.component';
     TodoComponent,
     LoginComponent,
     AddTodoComponent,
-    EditComponent
+    EditComponent,
+    SearchTodoComponent
   ],
   imports: [
     BrowserModule,

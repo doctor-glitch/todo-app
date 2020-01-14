@@ -27,6 +27,15 @@ export class EditComponent implements OnInit {
     });
   }
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.todoService.search(params.id).subscribe((data: any) => {
+        console.log(data);
+        this.todoForm.setValue({
+          name: data.name,
+          description: data.description
+        });
+      });
+    });
   }
 
 }

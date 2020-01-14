@@ -30,4 +30,9 @@ export class TodoService {
   get() {
     return this.http.get(baseUrl);
   }
+
+  search(id) {
+    console.log(id);
+    return this.http.get(`${baseUrl}search/${id}`);
+  }
 }

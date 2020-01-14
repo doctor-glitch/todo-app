@@ -4,6 +4,7 @@ import { LoginComponent } from '../login/login.component';
 import { TodoComponent } from '../todo/todo.component';
 import { AddTodoComponent } from '../add-todo/add-todo.component';
 import { EditComponent } from '../edit/edit.component';
+import { SearchTodoComponent } from '../search-todo/search-todo.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'add', component: AddTodoComponent},
   { path: '', component: LoginComponent },
   { path: 'edit/:id', component: EditComponent },
+  { path: 'search', component: SearchTodoComponent },
 ];
 
 @NgModule({
