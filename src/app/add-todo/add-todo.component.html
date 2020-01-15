@@ -18,12 +18,20 @@
   <h1>Add Todo</h1>
   <form [formGroup]="todoForm" (ngSubmit)="add()">
     <div class="form-group">
-      <label for="exampleInputPassword1">Name</label>
+      <label>Name</label>
       <input formControlName="name" name="todo" type="text" class="form-control" />
+      <div *ngIf="hasError('name')" style="color: red;">
+        <p *ngIf="get('name').errors.required" style="color: red;">Name cannot be empty</p>
+        <span *ngIf="get('name').errors.minlength" style="color: red;">Min length should be 3</span>
+      </div>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Description</label>
+      <label>Description</label>
       <input formControlName="description" name="description" type="text" class="form-control" />
+      <div *ngIf="hasError('description')" style="color: red;">
+        <p *ngIf="get('description').errors.required" style="color: red;">Description cannot be empty</p>
+        <span *ngIf="get('description').errors.minlength" style="color: red;">Min length should 5</span>
+      </div>
     </div>
     <button type="submit" class="btn btn-primary">Add</button>
   </form>
