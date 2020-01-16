@@ -15,7 +15,8 @@
   crossorigin="anonymous"
 ></script>
 <div class="container">
-  <h1>Add Todo</h1>
+  <!-- <h1>Add Todo</h1> -->
+  <app-header title="add todo"></app-header>
   <form [formGroup]="todoForm" (ngSubmit)="add()">
     <div class="form-group">
       <label>Name</label>
@@ -33,7 +34,7 @@
         <span *ngIf="get('description').errors.minlength" style="color: red;">Min length should 5</span>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!todoForm.valid">Add</button>
   </form>
 </div>
 

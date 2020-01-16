@@ -9,6 +9,9 @@ import { AddTodoComponent } from './add-todo/add-todo.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
 import { SearchTodoComponent } from './search-todo/search-todo.component';
+import { CustomPipe } from './pipes/custom.pipe';
+import { MycustomDirective } from './directives/mycustom.directive';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { SearchTodoComponent } from './search-todo/search-todo.component';
     LoginComponent,
     AddTodoComponent,
     EditComponent,
-    SearchTodoComponent
+    SearchTodoComponent,
+    CustomPipe,
+    MycustomDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

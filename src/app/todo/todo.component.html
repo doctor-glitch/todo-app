@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Todos</h1>
+      <app-header title="Todos"></app-header>
       <button (click)="add()" class="btn btn-primary">Add todos</button>
       <br />
       <br />
@@ -38,7 +38,7 @@
           </tr>
           <tr *ngFor="let list of todos; let i = index">
             <td>{{ list._id }}</td>
-            <td>{{ list.name }}</td>
+            <td appMycustom >{{ list.name | custom :'hello' }}</td>
             <td>{{ list.description }}</td>
             <td>
               <button (click)="delete(list._id)" class="btn btn-danger">
