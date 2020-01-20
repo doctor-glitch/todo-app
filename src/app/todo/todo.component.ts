@@ -12,6 +12,7 @@ import { TodoService } from '../services/todo.service';
 export class TodoComponent implements OnInit {
   todoForm;
   todos: any = [];
+  count = 0;
 
   constructor(private fb: FormBuilder, private ser: HelloService, private router: Router, private todoService: TodoService) { }
   delete(id) {
@@ -34,5 +35,8 @@ export class TodoComponent implements OnInit {
     this.todoService.get().subscribe(data => {
       this.todos = data;
     });
+  }
+  onHeaderClick(name) {
+    this.count++;
   }
 }

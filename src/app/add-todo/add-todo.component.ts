@@ -52,7 +52,7 @@ export class AddTodoComponent implements OnInit {
     return this.todoForm.get(controlName);
   }
 
-  hasError(controlName){
+  hasError(controlName) {
     return this.get(controlName).errors && (this.get(controlName).dirty || this.get(controlName).touched);
   }
 }

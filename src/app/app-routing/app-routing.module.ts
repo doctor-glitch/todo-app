@@ -5,15 +5,17 @@ import { TodoComponent } from '../todo/todo.component';
 import { AddTodoComponent } from '../add-todo/add-todo.component';
 import { EditComponent } from '../edit/edit.component';
 import { SearchTodoComponent } from '../search-todo/search-todo.component';
+import { RegisterComponent } from '../register/register.component';
 
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'todo', component: TodoComponent },
-  { path: 'add', component: AddTodoComponent},
+  { path: 'add', component: AddTodoComponent },
   { path: '', component: LoginComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: 'search', component: SearchTodoComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

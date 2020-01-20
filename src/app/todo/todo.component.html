@@ -19,7 +19,8 @@
   </head>
   <body>
     <div class="container">
-      <app-header title="Todos"></app-header>
+      <app-header (sendData)="onHeaderClick($event)" title="Todos"></app-header>
+      <h6>Header clicked {{count}} times </h6>
       <button (click)="add()" class="btn btn-primary">Add todos</button>
       <br />
       <br />

@@ -12,6 +12,7 @@ import { SearchTodoComponent } from './search-todo/search-todo.component';
 import { CustomPipe } from './pipes/custom.pipe';
 import { MycustomDirective } from './directives/mycustom.directive';
 import { HeaderComponent } from './components/header/header.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderComponent } from './components/header/header.component';
     SearchTodoComponent,
     CustomPipe,
     MycustomDirective,
-    HeaderComponent
+    HeaderComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
