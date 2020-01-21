@@ -50,7 +50,7 @@
     <input type="password" formControlName="pass2" class="form-control" placeholder="Enter Password again">
     <div>
       <p *ngIf="hasError('pass2') && get('pass2').errors.required" style="color: red;">Password cannot be empty</p>
-      <p *ngIf="!check()" style="color: red;">Password mismatch</p>
+      <p *ngIf="(get('pass2').dirty || get('pass2').touched ) && userForm.errors?.passwordNotSame" style="color: red;">Password mismatch</p>
     </div>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>

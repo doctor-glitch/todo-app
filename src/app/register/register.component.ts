@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -28,16 +28,12 @@ export class RegisterComponent implements OnInit {
       pass2: new FormControl('', [
         Validators.required,
       ]),
-    });
+    }, { validator: this.checkPasswords });
   }
-  passwordMatched = true;
-  check() {
-    // console.log(this.userForm.value.pass1 === this.userForm.value.pass2);
-    if (this.userForm.value.pass1 === this.userForm.value.pass2) {
-      return true;
-    } else {
-      return false;
-    }
+  checkPasswords(group: FormGroup) {
+    let pass = group.get('pass1').value;
+    let confirmPass = group.get('pass2').value;
+    return pass === confirmPass ? null : { passwordNotSame: true }
   }
   add() {
     console.log(this.userForm);
