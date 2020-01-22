@@ -22,6 +22,7 @@ export class SearchTodoComponent implements OnInit {
     console.log(this.todoForm.value.id);
     this.todoService.search(this.todoForm.value.id).subscribe(data => {
       this.todos = data;
+      console.log(data);
     });
   }
 

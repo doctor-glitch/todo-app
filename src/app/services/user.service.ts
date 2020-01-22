@@ -16,4 +16,11 @@ export class UserService {
       password
     });
   }
+  login(email, password) {
+    console.log(email, password);
+    return this.http.post(`${baseUrl}login`, {
+      email,
+      password
+    });
+  }
 }

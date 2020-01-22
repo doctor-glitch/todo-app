@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { UserService } from '../services/user.service';
 export class RegisterComponent implements OnInit {
   userForm: any;
   error = true;
-  constructor(private fb: FormBuilder, private userService: UserService) {
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
     this.userForm = fb.group({
       fname: new FormControl('', [
         Validators.required,
@@ -33,17 +34,19 @@ export class RegisterComponent implements OnInit {
   checkPasswords(group: FormGroup) {
     let pass = group.get('pass1').value;
     let confirmPass = group.get('pass2').value;
-    return pass === confirmPass ? null : { passwordNotSame: true }
+    return pass === confirmPass ? null : { passwordNotSame: true };
   }
   add() {
     console.log(this.userForm);
     if (!this.userForm.valid) {
     } else {
       // tslint:disable-next-line: max-line-length
-      this.userService.user(this.userForm.value.fname, this.userForm.value.lname, this.userForm.value.email, this.userForm.value.pass1).subscribe(data =>
-        console.log('sucess'));
+      this.userService.user(this.userForm.value.fname, this.userForm.value.lname, this.userForm.value.email, this.userForm.value.pass1).subscribe(data => {
+        this.router.navigate(['/login']);
+      }, err => {
+        alert(err.error.message);
+      });
     }
-
   }
 
   get(controlName) {
