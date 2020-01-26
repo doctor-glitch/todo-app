@@ -1,3 +1,11 @@
 button{
   transition: 500ms ease-out;
 }
+#usr{
+  text-align: center;
+  color: red;
+}
+h1{
+  text-align: center;
+  color: darkslateblue;
+}

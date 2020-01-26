@@ -21,11 +21,12 @@
     <div class="container">
       <h1>HOME</h1><br/><br/>
       <a routerLink="/search">Search Todo</a><br/><br/>
-      <button type="button" class="btn btn-primary" (click)='view()'>View All Todos</button>
     </div>
 
     <form class="container" [formGroup]="loginForm" (ngSubmit)="check()">
       <div class="form-group">
+        <h1>Login</h1>
+        <p id="usr" *ngIf="!er1">User doesnt exists</p>
         <label>Email address</label>
         <input type="email" formControlName="email" class="form-control" placeholder="Enter email">
         <div *ngIf="hasError('email')" style="color: red;">

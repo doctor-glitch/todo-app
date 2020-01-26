@@ -32,10 +32,10 @@ export class AddTodoComponent implements OnInit {
       //   console.log(this.todoForm.get('name'));
       // }
       // if (this.todoForm.get('description').errors != null) {
-      //   alert('description error');
+      //   alert('description error');++
       // }
     } else {
-      this.todoService.add(this.todoForm.value.name, this.todoForm.value.description).subscribe(data => {
+      this.todoService.add(this.todoForm.value.name, this.todoForm.value.description, '5e2559b0c46fdc0dc0d8d295').subscribe(data => {
         this.todoForm.reset();
         this.router.navigate(['todo']);
       });

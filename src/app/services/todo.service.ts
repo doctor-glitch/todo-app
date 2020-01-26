@@ -8,11 +8,12 @@ export class TodoService {
 
   constructor(private http: HttpClient) { }
 
-  add(name, description) {
+  add(name, description, userId) {
     return this.http.post(`${baseUrl}create`, {
       name,
-      description
-    });
+      description,
+      userId,
+    }, { withCredentials: true });
   }
 
   edit(name, description, id) {
@@ -28,7 +29,7 @@ export class TodoService {
   }
 
   get() {
-    return this.http.get(baseUrl);
+    return this.http.get(baseUrl, { withCredentials: true });
   }
 
   search(id) {

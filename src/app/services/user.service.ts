@@ -20,7 +20,8 @@ export class UserService {
     console.log(email, password);
     return this.http.post(`${baseUrl}login`, {
       email,
-      password
-    });
+      password,
+
+    }, { withCredentials: true });
   }
 }
