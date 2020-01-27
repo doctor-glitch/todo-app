@@ -14,7 +14,7 @@ export class UserService {
       lname,
       email,
       password
-    });
+    }, { withCredentials: true });
   }
   login(email, password) {
     console.log(email, password);

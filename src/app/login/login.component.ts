@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { HelloService } from '../services/hello.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UserService } from '../services/user.service';
 export class LoginComponent implements OnInit {
   loginForm: any;
   er1 = true;
-  constructor(private router: Router, private fb: FormBuilder, private userService: UserService) {
+  constructor(private router: Router, private fb: FormBuilder, private userService: UserService, private helloService: HelloService) {
     this.loginForm = fb.group({
       email: new FormControl('', [
         Validators.required,
@@ -25,8 +26,10 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm);
     if (!this.loginForm.valid) {
     } else {
-      this.userService.login(this.loginForm.value.email, this.loginForm.value.pass).subscribe(data => {
+      this.userService.login(this.loginForm.value.email, this.loginForm.value.pass).subscribe((data: any) => {
         console.log(data);
+        // console.log(data.user.fname);
+        this.helloService.setItem('user', data.user.fname);
         this.router.navigate(['todo']);
       }, err => {
         this.er1 = false;

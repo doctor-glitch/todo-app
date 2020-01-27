@@ -1,0 +1,17 @@
+.container{
+  /* background-image:url("/assets/res/2156158.jpg"); */
+  height: 100%;
+  width: 100%;
+}
+img{
+  width: 50vw;
+  height: 100vh;
+  text-align: left;
+}
+.container-fluid{
+  padding: 0;
+  margin:0;
+}
+.navbar-light{
+  background-color: white;
+}

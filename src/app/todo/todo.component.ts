@@ -13,8 +13,10 @@ export class TodoComponent implements OnInit {
   todoForm;
   todos: any = [];
   count = 0;
-
-  constructor(private fb: FormBuilder, private ser: HelloService, private router: Router, private todoService: TodoService) { }
+  usr: any;
+  constructor(private fb: FormBuilder, private ser: HelloService, private router: Router, private todoService: TodoService) {
+    this.usr = ser.getItem('user');
+  }
   delete(id) {
     console.log(id);
     this.todoService.delete(id).subscribe(data => {

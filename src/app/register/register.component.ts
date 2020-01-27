@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { HelloService } from '../services/hello.service';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   userForm: any;
   error = true;
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router, private helloService: HelloService) {
     this.userForm = fb.group({
       fname: new FormControl('', [
         Validators.required,
@@ -41,8 +42,10 @@ export class RegisterComponent implements OnInit {
     if (!this.userForm.valid) {
     } else {
       // tslint:disable-next-line: max-line-length
-      this.userService.user(this.userForm.value.fname, this.userForm.value.lname, this.userForm.value.email, this.userForm.value.pass1).subscribe(data => {
-        this.router.navigate(['/login']);
+      this.userService.user(this.userForm.value.fname, this.userForm.value.lname, this.userForm.value.email, this.userForm.value.pass1).subscribe((data: any) => {
+        console.log(data);
+        this.helloService.setItem('user', data.fname);
+        this.router.navigate(['/todo']);
       }, err => {
         alert(err.error.message);
       });
