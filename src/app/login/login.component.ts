@@ -3,15 +3,43 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { HelloService } from '../services/hello.service';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        height: '200px',
+        opacity: 1,
+        backgroundColor: 'yellow'
+      })),
+      state('closed', style({
+        height: '100px',
+        opacity: 0.5,
+        backgroundColor: 'green'
+      })),
+      transition('open => closed', [
+        animate('1s')
+      ]),
+      transition('closed => open', [
+        animate('0.5s')
+      ]),
+    ])
+  ],
 })
 export class LoginComponent implements OnInit {
   loginForm: any;
   er1 = true;
+  animationState = true;
   constructor(private router: Router, private fb: FormBuilder, private userService: UserService, private helloService: HelloService) {
     this.loginForm = fb.group({
       email: new FormControl('', [
@@ -21,6 +49,9 @@ export class LoginComponent implements OnInit {
         Validators.required,
       ]),
     });
+  }
+  toggleAnimations() {
+    this.animationState = !this.animationState;
   }
   check() {
     console.log(this.loginForm);

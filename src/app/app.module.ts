@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { InterceptorService } from './services/interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { InterceptorService } from './services/interceptor.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
